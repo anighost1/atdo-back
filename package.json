@@ -1,0 +1,24 @@
+{
+  "name": "atdo-back",
+  "version": "1.0.0",
+  "description": "AT todo app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --env-file .env index.js",
+    "start": "node --env-file .env index.js"
+  },
+  "author": "Anil Tigga",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.6.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0",
+    "nodemon": "^3.1.4"
+  }
+}
