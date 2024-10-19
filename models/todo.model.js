@@ -9,6 +9,9 @@ const todoSchema = new Schema({
     description: {
         type: String
     },
+    userId: {
+        type: Schema.Types.ObjectId,
+    },
     completed: {
         type: Boolean,
         default: false
@@ -37,10 +40,11 @@ const todoSchema = new Schema({
 });
 
 
-todoSchema.statics.create = async function (title, description, dueDate, priority) {
+todoSchema.statics.create = async function (title, description, dueDate, priority, userId) {
 
     const todo = new this({
         title: title,
+        userId: userId,
         ...(description && { description: description }),
         ...(dueDate && { dueDate: dueDate }),
         ...(priority && { priority: priority })

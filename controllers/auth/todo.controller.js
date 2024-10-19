@@ -4,8 +4,9 @@ import HttpStatus from "../../lib/httpStatus.js"
 
 export const create = async (req, res) => {
     const { title, description, dueDate, priority } = req.body
+    const user = req?.user
     try {
-        const newTodo = await Todo.create(title, description, dueDate, priority)
+        const newTodo = await Todo.create(title, description, dueDate, priority, user?._id)
         generateResponse(
             res,
             HttpStatus.OK,
@@ -56,7 +57,7 @@ export const get = async (req, res) => {
     }
 
     andConditions.push({
-        _id: user?._id,
+        userId: user?._id,
     });
 
     if (completed !== undefined) {
