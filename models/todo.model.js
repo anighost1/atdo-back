@@ -41,7 +41,7 @@ todoSchema.statics.create = async function (title, description, dueDate, priorit
 
     const todo = new this({
         title: title,
-        description: description,
+        ...(description && { description: description }),
         ...(dueDate && { dueDate: dueDate }),
         ...(priority && { priority: priority })
     });

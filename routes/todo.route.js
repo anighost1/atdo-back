@@ -5,7 +5,7 @@ const router = Router()
 
 router.post('/', create)
 router.get('/', get)
-router.delete('/', deleteTodo)
+router.post('/delete', deleteTodo)
 router.put('/', update)
 router.post('/completed', complete)
 

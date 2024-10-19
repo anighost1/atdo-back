@@ -68,7 +68,7 @@ export const get = async (req, res) => {
 
         const todo = await Todo.find(whereClause && whereClause)
             .select('title description priority dueDate completed')
-            .sort({ updatedAt: -1 })
+            .sort({ createdAt: -1 })
             .skip(startIndex)
             .limit(take)
 
