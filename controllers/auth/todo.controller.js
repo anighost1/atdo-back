@@ -4,7 +4,7 @@ import HttpStatus from "../../lib/httpStatus.js"
 
 export const create = async (req, res) => {
     const { title, description, dueDate, priority } = req.body
-    const user = req?.user
+    const user = JSON.parse(req.headers.user)
     try {
         const newTodo = await Todo.create(title, description, dueDate, priority, user?._id)
         generateResponse(
@@ -32,7 +32,7 @@ export const get = async (req, res) => {
     let pagination = {}
     const whereClause = {}
     const andConditions = [];
-    const user = req?.user
+    const user = JSON.parse(req.headers.user)
 
     const search = req?.query?.search ? String(req?.query?.search) : undefined
 
