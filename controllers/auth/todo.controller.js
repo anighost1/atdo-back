@@ -31,6 +31,7 @@ export const get = async (req, res) => {
     let pagination = {}
     const whereClause = {}
     const andConditions = [];
+    const user = req?.user
 
     const search = req?.query?.search ? String(req?.query?.search) : undefined
 
@@ -53,6 +54,10 @@ export const get = async (req, res) => {
             },
         ];
     }
+
+    andConditions.push({
+        _id: user?._id,
+    });
 
     if (completed !== undefined) {
         andConditions.push({
